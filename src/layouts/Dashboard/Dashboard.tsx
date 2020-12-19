@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Home } from 'src/pages/Home/Home';
+import { Home } from 'pages/Home/Home';
 
 export const Dashboard = (): ReactElement => {
     return (

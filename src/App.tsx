@@ -1,8 +1,8 @@
-import React, { FC, ReactElement } from 'react';
+import { ROUTES } from 'config/routes';
+import { Dashboard } from 'layouts/Dashboard/Dashboard';
+import React, { ReactElement } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './styles/index.css';
-import { ROUTES } from './config/routes';
-import { Dashboard } from './layouts/Dashboard/Dashboard';
 
 export const App = (): ReactElement => {
     return (

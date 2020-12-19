@@ -1,5 +1,5 @@
+import { Button } from 'components/Button/Button';
 import React, { ReactElement } from 'react';
-import { Button } from 'src/components/Button/Button';
 
 export const Home = (): ReactElement => {
     return (
