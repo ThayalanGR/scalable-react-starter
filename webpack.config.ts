@@ -13,7 +13,18 @@ const webpackConfiguration = (env: {
     return {
         entry: './src',
         resolve: {
-            extensions: ['.ts', '.tsx', '.js'],
+            extensions: [
+                '.ts',
+                '.tsx',
+                '.js',
+                '.css',
+                '.module.css',
+                '.png',
+                '.jpg',
+                '.jpeg',
+                '.svg',
+                '.gif',
+            ],
             plugins: [new TsconfigPathsPlugin()],
         },
         output: {
@@ -31,8 +42,33 @@ const webpackConfiguration = (env: {
                     exclude: [/dist/, /node_modules/],
                 },
                 {
-                    test: /\.css$/i,
+                    test: /\.(png|jpe?g|gif|svg)$/i,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                        },
+                    ],
+                },
+                {
+                    test: /\.(css|scss)$/,
+                    use: [
+                        'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1,
+                                modules: {
+                                    localIdentName: '[name]__[local]___[hash:base64:5]',
+                                },
+                            },
+                        },
+                    ],
+                    include: /\.module\.css$/,
+                },
+                {
+                    test: /\.(css|scss)$/,
                     use: ['style-loader', 'css-loader'],
+                    exclude: /\.module\.css$/,
                 },
             ],
         },
@@ -54,6 +90,7 @@ const webpackConfiguration = (env: {
         devServer: {
             port: 8000,
             publicPath: '/',
+            open: true,
         },
         devtool: !isProduction ? 'source-map' : false,
     };
