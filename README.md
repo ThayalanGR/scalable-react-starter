@@ -26,10 +26,16 @@ React typescript starter with prettier and eslint support built with webapack (n
         + ts
         + tsx
         + js
-        + jsx
         + css
+        + module.css
+        + png
+        + jpg
+        + jpeg
+        + svg
+        + gif
 
     Note: for additional file extensions, install corresponding loaders.
 
     FEEL FREE TO RESTRUCTURE AS PER YOUR PROJECT NEEDS.
+    
 ```
